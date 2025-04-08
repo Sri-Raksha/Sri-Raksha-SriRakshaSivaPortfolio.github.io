@@ -1,0 +1,17 @@
+{
+    "name": "portfolio-form",
+    "version": "1.0.0",
+    "description": "Static portfolio site with contact form using MongoDB and Netlify Functions",
+    "main": "index.js",
+    "scripts": {
+      "start": "netlify dev",
+      "build": "echo 'No build command needed for static files.'"
+    },
+    "dependencies": {
+      "mongodb": "^4.6.0"
+    },
+    "devDependencies": {},
+    "author": "",
+    "license": "ISC"
+  }
+  
