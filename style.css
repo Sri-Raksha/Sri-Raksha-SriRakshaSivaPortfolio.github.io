@@ -1911,3 +1911,203 @@ body.dark-mode .footer-social a {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
+
+/* Add this to your existing CSS */
+
+/* Update your existing navbar styles for mobile */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: row; /* Keep items in a row */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem; /* Adjust padding */
+  }
+
+  .nav-brand {
+    font-size: 1.2rem; /* Slightly smaller font */
+    white-space: nowrap;
+    margin-right: auto; /* Push other items to the right */
+  }
+
+  .hamburger {
+    order: 2; /* Ensure hamburger stays on the right */
+    margin-left: 1rem;
+  }
+
+  #dark-mode-toggle {
+    order: 1; /* Place toggle between brand and hamburger */
+    margin-left: auto; /* Push to the right */
+    margin-right: 1rem;
+  }
+
+  /* Adjust the hero section to account for navbar height */
+  #hero {
+    padding-top: 70px; /* Match navbar height */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .nav-brand {
+    font-size: 1rem; /* Even smaller font */
+    max-width: 120px; /* Prevent brand from taking too much space */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #dark-mode-toggle {
+    margin-right: 0.5rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .hamburger {
+    margin-left: 0.5rem;
+  }
+}
+
+/* Ensure nav items don't wrap */
+.nav-container {
+  flex-wrap: nowrap;
+}
+
+/* Add hamburger active state */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger span {
+  transition: all 0.3s ease;
+}
+
+/* ===== Timeline Fixes ===== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px; /* Adjusted from center to left */
+  width: 3px; /* Slightly thicker line */
+  height: 100%;
+  background: var(--primary-color);
+  z-index: 0; /* Ensure it stays behind content */
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 40px; /* Create space for line and dots */
+}
+
+.timeline-date {
+  display: block;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  left: -40px; /* Pull date into the left margin */
+  width: calc(100% + 40px); /* Extend width */
+  padding-left: 40px; /* Align with content */
+}
+
+.timeline-content {
+  position: relative;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 20px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gradient);
+  border: 3px solid white;
+  z-index: 2; /* Above the line */
+}
+
+/* List item styling */
+.timeline-content ul {
+  padding-left: 1rem;
+  list-style-type: none;
+}
+
+.timeline-content li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.timeline-content li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Desktop View */
+@media (min-width: 769px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+
+  .timeline-date {
+    width: 45%;
+    text-align: right;
+    padding-right: 2rem;
+    left: 0;
+    padding-left: 0;
+  }
+
+  .timeline-content {
+    width: 45%;
+    padding-left: 2rem;
+  }
+
+  .timeline-content::before {
+    left: -10px;
+  }
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .timeline-content {
+  background: #334155;
+  border-color: #475569;
+}
+
+body.dark-mode .timeline-content li {
+  color: #e2e8f0;
+}
