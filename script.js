@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Typewriter effect
   const typewriterText = document.querySelector('.typewriter-text');
   const phrases = [
-      "Business Analyst"
+      "Business Analyst",
       "Artificial Intelligence & Machine Learning Engineer",
       "Data Scientist",
       "Data Analyst",
